@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <sys/types.h>
 
 enum {
     // load Accumulator
@@ -63,8 +64,8 @@ uint16_t addr_inx(CPU_65XX *cpu, uint8_t *mem);
 uint16_t addr_iny(CPU_65XX *cpu, uint8_t *mem);
 
 // 65XX CPU operations
-uint8_t fetch_byte(CPU_65XX *cpu, uint8_t *mem, uint16_t addr);
-uint16_t fetch_word(CPU_65XX *cpu, uint8_t *mem, uint16_t addr);
+uint8_t fetch_byte(CPU_65XX *cpu, uint8_t *mem);
+uint16_t fetch_word(CPU_65XX *cpu, uint8_t *mem);
 void set(CPU_65XX *cpu, size_t reg, uint8_t flags);
 void reset(CPU_65XX *cpu, uint8_t *mem, uint16_t reset_vec);
 ssize_t execute(CPU_65XX *cpu, uint8_t *mem, uint8_t ins);

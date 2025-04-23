@@ -26,16 +26,16 @@ uint8_t mem_read_byte(uint8_t *mem, uint16_t addr) {
 }
 
 uint16_t mem_read_word(uint8_t *mem, uint16_t addr) {
-    return mem[addr] | (mem[++addr] << 8);
+    return mem[addr] | (mem[addr+1] << 8);
 }
 
 void mem_write_byte(uint8_t *mem, uint16_t addr, uint8_t data) {
     mem[addr] = data;
 }
 
-void mem_write_word(char *mem, uint16_t addr, uint16_t data) {
+void mem_write_word(uint8_t *mem, uint16_t addr, uint16_t data) {
     mem[addr]   = (uint8_t)(data);
-    mem[++addr] = (uint8_t)(data >> 8)
+    mem[++addr] = (uint8_t)(data >> 8);
 }
 
 #endif // C64_EMULATION
